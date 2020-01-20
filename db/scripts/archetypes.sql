@@ -1,0 +1,16 @@
+INSERT INTO archetypes(archetypeName,hero,villain,praetorian) VALUES
+("Tanker",1,1,1),
+("Scrapper",1,1,1),
+("Defender",1,1,1),
+("Controller",1,1,1),
+("Blaster",1,1,1),
+("Peacebringer",1,0,0),
+("Warshade",1,0,0),
+("Brute",1,1,1),
+("Stalker",1,1,1),
+("Mastermind",1,1,1),
+("Dominator",1,1,1),
+("Corruptor",1,1,1),
+("Arachnos Soldier",0,1,0),
+("Arachnos Widow",0,1,0),
+("Sentinel",1,1,1);
