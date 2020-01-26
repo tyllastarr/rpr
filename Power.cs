@@ -1,42 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 
 namespace RPR
 {
     class Power
     {
-        private String powerName;
+        private DBItem powerItem;
         private int numSlots;
 
-        public String getPowerName()
-        {
-            return powerName;
-        }
+        public int NumSlots { get => numSlots; set => numSlots = value; }
+        internal DBItem PowerItem { get => powerItem; set => powerItem = value; }
 
-        public void setPowerName(String newName)
+        public Power(int newId, String newName, int newNum)
         {
-            powerName = newName;
-        }
+            PowerItem = new DBItem();
+            PowerItem.ItemId = newId;
+            PowerItem.ItemName = newName;
 
-        public int getNumSlots()
-        {
-            return numSlots;
-        }
-
-        public void setNumSlots(int newNum)
-        {
-            if(newNum > 6)
+            if (newNum > 6 || newNum < 1)
             {
-                Debug.Print("Number of slots too high.");
-            } else if(newNum < 1)
-            {
-                Debug.Print("Number of slots too low.");
-            } else
-            {
-                numSlots = newNum;
+                NumSlots = 1;
             }
+            else
+            {
+                NumSlots = newNum;
+            }
+        }
+
+        public Power(String newName, int newNum)
+        {
+            PowerItem = new DBItem();
+            PowerItem.ItemName = newName;
+
+            if (newNum > 6 || newNum < 1)
+            {
+                NumSlots = 1;
+            }
+            else
+            {
+                NumSlots = newNum;
+            }
+        }
+
+        public Power(int newId, String newName)
+        {
+            PowerItem = new DBItem();
+            PowerItem.ItemId = newId;
+            PowerItem.ItemName = newName;
+            NumSlots = 1;
+        }
+
+        public Power(String newName)
+        {
+            PowerItem = new DBItem();
+            PowerItem.ItemName = newName;
+            NumSlots = 1;
+        }
+
+        public Power()
+        {
+            PowerItem = new DBItem();
+            NumSlots = 1;
         }
     }
 }
