@@ -1,0 +1,4 @@
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\RPR.exe
+P:\Projects\rpr\obj\Debug\netcoreapp3.1\RPR.csprojAssemblyReference.cache
+P:\Projects\rpr\obj\Debug\netcoreapp3.1\RPR.AssemblyInfoInputs.cache
+P:\Projects\rpr\obj\Debug\netcoreapp3.1\RPR.AssemblyInfo.cs
