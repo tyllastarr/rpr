@@ -1,0 +1,7 @@
+{
+  "server": "",
+  "user": "",
+  "database": "rpr",
+  "port": 3306,
+  "password":  ""
+}

@@ -355,3 +355,5 @@ MigrationBackup/
 # Custom stuff to ignore
 db/db*.accdb
 db/import/*
+db/scripts/user.sql
+db/dbconfig.json
