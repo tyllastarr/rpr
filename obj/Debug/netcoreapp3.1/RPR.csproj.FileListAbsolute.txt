@@ -21,3 +21,11 @@ P:\Projects\rpr\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Dr
 P:\Projects\rpr\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 P:\Projects\rpr\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 P:\Projects\rpr\obj\Debug\netcoreapp3.1\RPR.csproj.CopyComplete
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\RPR.deps.json
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\RPR.runtimeconfig.json
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\RPR.runtimeconfig.dev.json
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\RPR.dll
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\RPR.pdb
+P:\Projects\rpr\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+P:\Projects\rpr\obj\Debug\netcoreapp3.1\RPR.dll
+P:\Projects\rpr\obj\Debug\netcoreapp3.1\RPR.pdb

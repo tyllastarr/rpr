@@ -6,7 +6,7 @@ namespace RPR
 {
     class DBItem
     {
-        private String itemName;
+        private string itemName;
         private int itemId;
 
         public string ItemName { get => itemName; set => itemName = value; }
