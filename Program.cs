@@ -64,8 +64,60 @@
                 Console.WriteLine(e.ToString());
             }
 
-            // Close connection
-            mySqlConn.Close();
+            // Roll archetype and alignment
+            try
+            {
+                string cmdStr = "SELECT * FROM archetypes";
+
+                MySqlCommand cmd = new MySqlCommand(cmdStr, mySqlConn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                Queue<Archetype> results = new Queue<Archetype>();
+                while (rdr.Read())
+                {
+                    results.Enqueue(new Archetype(rdr[1].ToString(), (int)rdr[0], (bool)rdr[2], (bool)rdr[3], (bool)rdr[4]));
+                    Console.WriteLine(rdr[0] + " -- " + rdr[1] + " -- " + rdr[2] + " -- " + rdr[3] + " -- " + rdr[4]);
+                }
+                rdr.Close();
+                int index = rand.Next(results.Count);
+                Archetype dump; // For debug use only
+
+                for (int i = 0; i < index; i++)
+                {
+                    dump = results.Dequeue();  // Dump this item 
+                    Console.WriteLine($"Dumping {dump.Item.ItemName}");
+                }
+
+                Archetype temp = results.Dequeue();
+                myChar.Archetype = temp.Item;
+                Console.WriteLine($"Keeping {temp.Item.ItemName}");
+
+                bool ATCorrect = false;
+                Alignment newAlign;
+                do
+                {
+                    newAlign = (Alignment)rand.Next(3);
+                    switch(newAlign) {
+                        case Alignment.Hero:
+                            ATCorrect = temp.Hero;
+                            break;
+                        case Alignment.Villain:
+                            ATCorrect = temp.Villain;
+                            break;
+                        case Alignment.Praetorian:
+                            ATCorrect = temp.Praetorian;
+                            newAlign = (Alignment)(rand.Next(2) + 3);
+                            break;
+                    }
+                } while (ATCorrect == false);
+                myChar.Align = newAlign;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+ 
+        // Close connection
+        mySqlConn.Close();
         }
     }
 }
