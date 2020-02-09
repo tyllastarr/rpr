@@ -140,6 +140,35 @@
 
                 myChar.Powersets[0] = results.Dequeue();
                 Console.WriteLine($"Keeping {myChar.Powersets[0].ItemName}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
+            // Roll secondary powerset
+            try
+            {
+                string cmdStr = $"SELECT powersets.* FROM powersets INNER JOIN archetype_powersets ON powersets.powersetId = archetype_powersets.powerset WHERE archetype_powersets.archetype = {myChar.Archetype.ItemId} AND archetype_powersets.powersetType = 'Secondary'";
+                MySqlCommand cmd = new MySqlCommand(cmdStr, mySqlConn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                Queue<DBItem> results = new Queue<DBItem>();
+                while (rdr.Read())
+                {
+                    results.Enqueue(new DBItem(rdr[1].ToString(), (int)rdr[0]));
+                    Console.WriteLine(rdr[0] + " -- " + rdr[1]);
+                }
+                rdr.Close();
+                int index = rand.Next(results.Count);
+                DBItem dump; // For debug use only
+                for (int i = 0; i < index; i++)
+                {
+                    dump = results.Dequeue();  // Dump this item 
+                    Console.WriteLine($"Dumping {dump.ItemName}");
+                }
+
+                myChar.Powersets[1] = results.Dequeue();
+                Console.WriteLine($"Keeping {myChar.Powersets[1].ItemName}");
                 Console.WriteLine();
             }
             catch (Exception e)
